@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <docinfo>
+
+    <document-id>farmer-BimodalUnitary</document-id>
+
+    <macros>
+\newcommand{\foo}{b^{ar}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\abs}[1]{|#1|}
+    </macros>
+    <latex-image-preamble>\usepackage{tikz}</latex-image-preamble>
+
+
+        <knowl problem="no" remark="no" proof="no" problem-solution="no"/>
+
+<rename element="problem">Experiment</rename>
+<rename element="solution">Outcome</rename>
+
+  </docinfo>
+  <article xml:id="bimodalunitaryderivatives">
+    <title>The bimodal distribution in the derivative of unitary polynomials</title>
+    <xi:include href="./frontmatter.ptx" />
+    <xi:include href="./introduction.ptx" />
+    <xi:include href="./thepdf.ptx" />
+    <xi:include href="./thesource.ptx" />
+    <xi:include href="./toymodels.ptx" />
+<backmatter>
+  <xi:include href="./bibliography.ptx" />
+</backmatter>
+  </article>
+</pretext>

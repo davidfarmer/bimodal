@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xml:id="pdfs" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Random characteristic polynomials</title>
+
+<introduction>
+<p>
+Motivated by the connection to the Riemann <m>\zeta</m>-function and other L-functions,
+and building on previous work<nbsp/><xref ref="mez dffhmp"/>, our examples will primarily
+come from the characteristic polynomials of random unitary matrices,
+where the randomness is uniform with respect to Haar measure on the
+unitary group<nbsp/><m>U(n)</m>. 
+</p>
+</introduction>
+
+<subsection>
+<title>Some experiments to gain intuition</title>
+
+<p>
+Generating Haar-random unitary matrices is easy in principle, but there are
+two likely pitfalls.  The first, explained in<nbsp/><xref ref="Mez_haar"/>,
+is that the built-in <m>QR</m>-decomposition routine in many computer-algebra
+systems introduces a bias.  The second is that the built-in routine to find the
+eigenvalues of a matrix may give incorrect results if the matrix is large
+and the entries are not known with sufficient precision.
+This Mathematica code addresses both issues, although it is left to the
+user to ensure that sufficient precision is selected.
+</p>
+
+<listing>
+<caption>Mathematica code to generate Haar-random unitary matrices with a given precision.</caption>
+<program language="mathematica">
+<title>Mathematica code to generate Haar-random unitary matrices with a given precision</title>
+    <code>
+norm = NormalDistribution[0, 1];
+
+randunitary[n_, prec_] := Block[{q, r, d, i, j},
+   {q, r} = QRDecomposition[
+      Table[RandomVariate[norm, WorkingPrecision -> prec] + 
+        RandomVariate[norm, WorkingPrecision -> prec]*I,
+          {i, 1, n}, {j, 1, n}]
+            ];
+   d = DiagonalMatrix[
+         Table[dd = r[[i, i]]; dd/Abs[dd], {i, 1, n}]
+       ];
+   q.d]
+    </code>
+</program>
+</listing>
+
+<p>
+Our first experiment is to compile data on the radial distribution of zeros
+of derivatives.
+</p>
+
+<problem>
+<statement>
+<p>
+Start with an empty list named <c>zp20</c>.
+Generate <m>5.4 \times 10^{6}</m> Haar-random matrices in <m>U(20)</m>.  For each matrix:
+<ol>
+<li>
+form the characteristic polynomial
+</li>
+<li>
+take its derivative
+</li>
+<li>
+compute approximations to the zeros of the derivative
+</li>
+<li>
+append the absolute values of those zeros to the list <c>zp20</c>.
+</li>
+</ol>
+</p>
+</statement>
+
+<solution>
+<p>
+The list <c>zp20</c> will contain approximately <m>10^{8}</m>
+real numbers <m>\{r_j\}</m> with <m>0 \lt r_j \lt 1</m>.
+Note that those inequalities are strict, because the probability
+of hitting either extreme is<nbsp/><m>0</m>.
+<xref ref="zp20pdf1"/> shows a histogram, normalized to have area<nbsp/><m>1</m>,
+of <m>20 (1 - r_j)</m>.
+</p>
+</solution>
+</problem>
+
+    <figure xml:id="zp20pdf1">
+      <caption>Empirical distribution of <m>20(1 - \abs{z'})</m> for <m>z'</m> a zero of the
+            derivative of the 
+            characteristic polynomial of a Haar-random matrix from <m>U(20)</m>.</caption>
+      <image source="u20zpPDF.png" width="80%">
+        <description>A PDF supported on <m>[0,8]</m>, which rises like <m>\sqrt{x}</m>, then dips down
+          slightly then rises more sharply
+          to a second peak near <m>2.5</m>, and then decreases rapidly and then gradually toward<nbsp/><m>0</m>.</description>
+      </image>
+    </figure>
+
+<p>
+Is the second bump a transient phenomenon, or will it persist in the large <m>N</m> limit?
+<xref ref="combinedpdf"/> superimposes the results of the above experiment for
+various<nbsp/><m>N</m>.
+</p>
+    <figure xml:id="combinedpdf">
+      <caption>Empirical distribution of <m>N(1 - \abs{z'})</m> for <m>z'</m> a zero of the
+            derivative of the
+            characteristic polynomial of a Haar-random matrix from <m>U(N)</m>,
+            for <m>N=20</m>, <m>40</m>, <m>80</m>, <m>160</m>, and <m>320</m>.
+            The dotted lines divide the <m>N=320</m> PDF into <m>8</m> equal areas.</caption>
+      <image source="combinedzpPDF.png" width="80%">
+        <description>The superposition of five graphs similar to <xref ref="zp20pdf1"/>,
+           with the 2nd peak of each successive graph moving slightly down and to the right,
+           the amount of movement decreasing with each graph, with the change between
+           the final two graphs being nearly imperceptible.</description>
+      </image>
+    </figure>
+
+
+<p>
+Does <xref ref="combinedpdf"/> support a claim that the second bump persists as<nbsp/><m>N\to\infty</m>?
+</p>
+
+<p>
+One possible argument against such interpretation is that some features,
+for example the value distribution of<nbsp/><m>p_u(1)</m> for random <m>u\in U(N)</m>, approach their limiting behavior
+on the scale of <m>1/\sqrt{\log N}</m>.  For such features, most numerical experiments will show
+significant deviations from the limiting behavior.
+</p>
+
+<p>
+We suggest that for the normalized distribution <m>N(1-\abs{z'})</m>, 
+the limiting distribution is approached on the scale of <m>1/N^2</m>, and so
+<xref ref="combinedpdf"/> does provide persuasive evidence for a second bump
+in the limit.  There are three ingredients to our reasoning.
+</p>
+
+<p>
+First is that the zeros of <m>p'</m> near the two peaks typically depend strongly only on the
+relative spacing of a few nearby zeros.  See <xref ref="sec_local"/>.
+</p>
+
+<p>
+Second is the the relative likelihood of a given cluster of zero spacings stabilizes
+quickly as <m>N</m> increases, at the rate of <m>1/N^2</m>.  See <xref ref="sec_stable"/>.
+</p>
+
+<p>
+Third is that the effect of the curvature of the circle on the rescaled
+zeros also decreases as <m>1/N^2</m>.  See <xref ref="sec_curve"/>.
+</p>
+
+</subsection>
+
+<subsection xml:id="sec_local">
+<title>The local arrangement is most important, when close to the unit circle</title>
+<p>
+<xref ref="jiggled"/> shows the results of the following:
+</p>
+<problem xml:id="p40perturbed">
+<statement>
+<p>
+Start with an empty list named <c>zp40perturbed</c>.
+Generate a unitary polynomial <m>p_u</m> for some fixed <m>u\in U(40)</m>.
+Perform the following steps  <m>250</m> times:
+<ol>
+<li>
+<p>
+Generate a polynomial <m>\tilde{p}</m>, where the
+zeros of <m>\tilde{p}</m> are partitioned into two sets:
+<ol>
+<li>The zeros of <m>p_u</m> in the first quadrant</li>
+<li>The other zeros of <m>p_u</m>, with arguments perturbed independently by a random amount
+in the interval <m>(-2\pi/40,2\pi/40)</m>.  That is, perturbed by a random amount
+less than the average gap between zeros.</li>
+</ol>
+</p>
+</li>
+<li>
+Compute approximations to the zeros of <m>\tilde{p}'</m>
+</li>
+<li>
+Append those zeros to the list <c>zp40perturbed</c>.
+</li>
+</ol>
+</p>
+</statement>
+
+<solution>
+<p>
+The list <c>zp40perturbed</c> will contain <m>9750</m> points, which are shown
+as small blue dots in <xref ref="jiggled"/>.  The roots of <m>p_u</m> are shown as
+larger red squares.
+</p>
+
+
+    <figure xml:id="jiggled">
+      <caption>The outcome of one run of <xref ref="p40perturbed"/>.
+            </caption>
+      <image source="jiggledzeros2.png" width="75%">
+        <description>The unit circle with 40 small randomly placed red squares.
+           Inside the circle are thousands of small blue dots.  In the first
+quadrant close to the circle the dots generally are in small isolated clusters.
+In the other quadrants there are many blue dots clustered near the circle
+and a thinner scattering further from the circle.</description>
+      </image>
+    </figure>
+
+</solution>
+</problem>
+
+
+<p>
+In <xref ref="jiggled"/> it can be seen that the zeros of the derivative which
+are in the middle of the first quadrant and closer than around <m>4/N</m> from the unit circle,
+depend minimally on the other zeros.  
+Thus, only the arrangement of small numbers of consecutive zeros determines the
+main features of the zeros of the derivative in that region.
+</p>
+
+</subsection>
+
+<subsection xml:id="sec_stable">
+<title>Relative frequency spacings</title>
+<p>
+The second ingredient is a property of Haar measure on <m>U(N)</m>. 
+Suppose <m>\delta_1 \lt \cdots \lt \delta_k</m>.  We interpret those numbers as
+the consecutive normalized gaps between random eigenvalues.
+That is, we consider the likelihood that for some <m>\theta_0</m> we have
+<m>\{e^{i\theta_0}, e^{i(\theta_0 + 2\pi \delta_1/N)},\ldots, e^{i(\theta_0+2\pi \delta_k/N)}\}</m> as
+consecutive eigenvalues of a Haar random matrix in<nbsp/><m>U(N)</m>.  
+By <term>likelihood</term> we mean
+<men>
+\lim_{\epsilon \to 0} \epsilon^{-k} \operatorname{Prob}(\delta_1 \lt \tilde\lambda_1-\tilde\lambda_0 \lt \delta_1 + \epsilon
+       \ \land \ \cdots \ \land \ \delta_k \lt \tilde\lambda_k-\tilde\lambda_{k-1} \lt \delta_k + \epsilon)
+</men>,
+where <m> e^{i \lambda_0},e^{i\lambda_1},\ldots,e^{i\lambda_k}</m> are consecutive eigenvalues of
+a random matrix in<nbsp/><m>U(N)</m> and <m>\tilde\lambda = N\lambda/2\pi</m> are the
+normalized eigenangles.
+In other words, the value of the PDF of the normalized <m>k</m>-neighbor gaps.
+By inspection of Haar measure in terms of eigenvalues, the likelihood of a configuration
+is nonzero if <m>N</m> is sufficiently large, and as
+<m>N\to\infty</m> that likelihood converges to a nonzero limit.
+Furthermore, that likelihood can be written in terms of the <m>m</m>-correlation
+functions, with <m>m \le k</m>, and each <m>m</m>-correlation converges to
+its limit at the rate of <m>1/N^2</m>.  Therefore the likelihood also
+converges at that rate.</p>
+
+<p>
+Thus, if a property of a unitary polynomial depends only on the local
+configuration of zeros, then that property can be reliably studied by
+performing numerical experiments on random matrices from <m>U(N)</m>
+for moderately sized<nbsp/><m>N</m>.
+</p>
+
+</subsection>
+
+<subsection xml:id="sec_curve">
+<title>Curvature effects</title>
+
+<p>
+As <m>N\to\infty</m> a given configuration sits on a segment of the circle of length
+<m>O(1/N)</m>.  That segment is approaching a straight line, and the discrepancy
+is<nbsp/><m>O(1/N^2)</m>.  So that effect is comparable to the previously discussed effects.
+</p>
+<!--
+<p>
+As <m>N\to\infty</m> a local configuration of zeros on the unit circle is approaching a
+straight line at the rate of <m>1/N^2</m>.  [[[[]]]]
+</p>
+
+<p>
+The remaining issue is that (on the scale of
+the local zero spacing) the curvature of the circle is changing.
+That curvature displaces the zeros from being in a straight line on the
+scale of <m>1/N</m>, so that is the third ingredient in our argument that
+the distribution of <m>N(1-\abs{z'})</m> differs from the limiting distribution
+on the scale of<nbsp/><m>1/N</m>.
+</p>
+-->
+
+
+</subsection>
+
+</section>

@@ -1,0 +1,51 @@
+
+<references xml:id="bibliography">
+
+<title>Bibliography</title>
+
+
+
+<biblio type="bibtex" xml:id="dffhmp">
+<author>Dueñez, Eduardo; Farmer, David W.; Froehlich, Sara; Hughes, C. P.; Mezzadri, Francesco; Phan, Toan</author>
+<title>Roots of the derivative of the Riemann-zeta function and of characteristic polynomials</title>
+<journal>Nonlinearity</journal>
+<volume>23</volume>
+<number>10</number>
+<year>2010</year>
+<pages start="2599" end="2621"/>
+</biblio>
+
+<biblio type="bibtex" xml:id="farmer_ki">
+<author>Farmer, David W. and Ki, Haseo</author>
+<title>Landau-Siegel zeros and zeros of the derivative of the Riemann zeta function</title>
+<journal>Adv. Math.</journal>
+<volume>230</volume>
+<year>2012</year>
+<number>4-6</number>
+<pages start="2048" end="2064"/>
+</biblio>
+
+
+<biblio type="bibtex" xml:id="mez">
+<author>Francesco Mezzadri</author>
+<title>Random matrix theory and the zeros of <m>\zeta'(s)</m></title>
+<journal>J. Phys. A</journal>
+<volume>36</volume>
+<year>2003</year>
+<number>12</number>
+<pages start="2945" end="2962"/>
+</biblio>
+
+<biblio type="bibtex" xml:id="Mez_haar">
+<author>Francesco Mezzadri</author>
+<title>How to generate random matrices from the classical compact groups</title>
+<series>Notices Amer. Math. Soc.</series>
+<volume>54</volume>
+<number>5</number>
+<year>2007</year>
+<pages start="592" end="604"/>
+</biblio>
+
+
+</references>
+

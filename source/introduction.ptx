@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<introduction xml:id="intro" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<p>
+A <term>unitary polynomial</term> is a polynomial <m>p</m> having
+all roots on the
+unit circle, <m>\{z \in \CC \ :\ \abs{z} = 1\}</m>.
+We denote those zeros by <m>e^{i\theta_1},\ldots,e^{i\theta_N}</m>,
+where <m>0\le \theta_1\le \cdots \le \theta_N \lt 2\pi</m>.
+By the Gauss-Lucas theorem, all the roots of the derivative
+<m>p'</m> lie in the unit disc,  <m>\{z \in \CC \ :\ \abs{z} \le 1\}</m>,
+with the only zeros of <m>p'</m> on the unit circle arising from
+multiple zeros of<nbsp/><m>p</m>.
+</p>
+
+<p>
+We consider the case of unitary polynomials with zeros
+<m>z_1,\ldots,z_n</m> randomly, but not necessarily independently,
+distributed on the unit circle.
+The zeros of the derivative <m>z'_1,\ldots,z'_{n-1}</m> will be random
+points in the unit disc: we want to understand their distribution.
+We will further assume that the distribution of zeros is rotationally
+invariant: the likelihood of zeros
+<m>\{e^{i\theta_1},\ldots,e^{i\theta_n}\}</m> is the same as the likelihood of
+<m>\{e^{i\theta_1+\phi},\ldots,e^{i\theta_n+\phi}\}</m> for any <m>\phi\in\RR</m>.
+In this case it is natural to look at the radial distribution of
+the zeros of the derivative, that is, the distribution of<nbsp/><m>\abs{z'_j}</m>.
+</p>
+
+<p>
+It is also helpful to imagine that any finite sequence of normalized neighbor
+spacings can occur.  See <xref ref="sec_stable"/>.
+</p>
+
+<p>
+The zeros of <m>p'</m> will cluster near the
+unit circle, equivalently, most of the <m>\abs{z'}</m> will be very close
+to<nbsp/><m>1</m>.
+As described in <xref ref="mez, dffhmp"/>,
+for degree <m>N</m> polynomials the appropriate rescaling is to consider
+<m>N (1 - \abs{z'})</m>.  It was found <xref ref="dffhmp"/> that in a wide variety of
+cases the distribution of <m>\abs{z'}</m> is bimodal: the probability density
+function (PDF) has two local maxima.
+</p>
+
+<p>
+We perform various experiments which indicate the source of the
+second mode.   We focus on the case of characteristic polynomials of
+random unitary matrices.  That is, <m>u\in U(N)</m> is selected randomly
+with respect to Haar measure, and <m>p_u</m> is its characteristic polynomial.
+<!--
+In this case the second local maximum in the PDF for <m>\abs{z'}</m>,
+for <m>z'</m>
+ zero of <m>p'</m>,
+lies near <m>1-2.6/N</m>. 
+-->
+</p>
+
+<paragraphs>
+<title>The three regimes</title>
+
+<p>
+We suggest that a productive way to think about the zeros of <m>p'</m>
+is to recognize three regions.  One is the annulus between the unit circle
+and (approximately) the circle of radius <m>1-2/N</m>.  In that region, most of the zeros
+of <m>p'</m> arise from closely spaced zeros of<nbsp/><m>p</m>.
+This situation was analyzed in detail in<nbsp/><xref ref="dffhmp"/>.
+But note that zeros of <m>p'</m> very close to the unit circle also arise from sufficiently long strings
+of consecutive zeros of <m>p</m> spaced closer than average: see<nbsp/><xref ref="farmer_ki"/>.
+</p>
+
+<p>
+The second is the annulus between (approximately) the circles of radius <m>1-2/N</m> and
+of radius <m>1-4/N</m>.  Here some of the zeros of <m>p'</m>
+arise from zeros spaced slightly closer than average, or from clusters
+of such zeros.  But in that region many of the zeros of <m>p'</m> arise from
+a different source:
+triples of consecutive zeros, where both neighbor gaps are larger than average.
+See <xref ref="thesource"/> for a discussion.
+</p>
+
+<p>
+Furthermore, in both of those regions typically the location of the zeros of <m>p'</m>
+is primarily determined by a few nearby zeros of<nbsp/><m>p</m>.
+That is, if there is a zero <m>z'</m> of <m>p'_0</m>
+in that region,
+and <m>p_1</m> is another polynomial of the same degree, with <m>p_0</m>
+and <m>p_1</m> having the same zeros near  <m>z'</m>, then
+<m>p'_1</m> will typically have a zero
+close to <m>z'</m>.  In other words,
+zeros of <m>p'</m> which are closer than (approximately)
+<m>4/N</m> of the unit circle, depend primarily on the local arrangement
+of zeros of<nbsp/><m>p</m>.
+</p>
+
+<p>
+In contrast, the zeros of <m>p'</m> farther than (approximately)
+<m>4/N</m> from the unit circle are sensitive to the bulk of the
+zeros of <m>p</m>.  
+See <xref ref="jiggled"/> for an illustration of this phenomenon.
+<xref ref="combinedpdf"/> indicates that
+approximately<nbsp/><m>25\%</m> of the zeros of <m>p'</m> fall
+into that category.
+</p>
+
+<p>
+In the examples where we plot zeros of <m>p'</m> in the unit circle,
+we also show (as dotted lines) the circles of radius <m>1-2/N</m>
+and <m>1-4/N</m>.
+</p>
+
+</paragraphs>
+
+<p>
+The existence of multiple regions with different behaviors
+suggests that determining the distribution of zeros of <m>p'</m>
+is truly a difficult problem.
+</p>
+
+</introduction>

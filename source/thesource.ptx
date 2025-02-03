@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xml:id="thesource" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The source of the second bump</title>
+  <p>In this section we justify the following:</p>
+
+<claim xml:id="sourceofhump2">
+<statement>
+<p>
+The zeros of <m>p'</m> in the second bump, 
+which do not come from two closely spaced zeros, primarily arise
+from three consecutive zeros where both zero gaps are
+larger than average.  The associated zero of the derivative
+is near the radial line from the center of the circle to the middle
+zero.
+</p>
+<p>
+Specifically, if <m>e^{i \theta_1}, e^{i \theta_2}, e^{i \theta_3}</m> are consecutive zeros
+of<nbsp/><m>p</m>, with
+<m>\theta_2 - \theta_1, \theta_3 - \theta_2 > 2\pi/N</m>, 
+then <m>p'</m> tends to have a zero within <m>2.5/N</m>
+of<nbsp/><m>(1-3/N) z_2</m>.
+</p>
+</statement>
+</claim>
+
+<p>
+That claim reinforces the idea that the distribution of
+zeros of <m>p'</m> is difficult to analyze.  Given three
+zeros of <m>p</m>, we have located one zero of <m>p'</m>.
+That leaves at least one, and typically two, zeros unaccounted for.
+(But when two consecutive gaps are larger than average, it is more
+likely that the gaps on either side are smaller than average,
+so that says something about the location of the <q>missing</q>
+zeros.  <xref ref="specialcircles"/> contains some examples.)
+</p>
+
+<p>
+<xref ref="specialcircles"/> illustrates <xref ref="sourceofhump2"/>
+using an example with <m>N=30</m>.
+</p>
+
+    <figure xml:id="specialcircles">
+      <caption>The zeros of a degree <m>N=30</m> unitary polynomial with 
+     circles of radius <m>2.5/N</m> containing some of the zeros of the derivative.
+            </caption>
+      <image source="zerosinspecialcircles.png" width="70%">
+        <description><m>30</m> blue dots on the unit circle and <m>29</m> orange
+    discs inside the unit circle.  Five of those orange discs have a small dotted
+   circle surrounding them.  Those orange discs are located approximately
+   radially inward from a blue disc.
+           missing.</description>
+      </image>
+    </figure>
+
+<p>
+We reinforce <xref ref="sourceofhump2"/> with the following:
+</p>
+<problem xml:id="exp_special20">
+<statement>
+<p>
+Start with an empty list <c>specialzeros20</c>.
+Generate approximately <m>100,000</m> characteristic polynomials
+<m>p_u</m> for Haar random <m>u\in U(20)</m>.  In all cases where three
+consecutive zeros <m>z_1, z_2, z_3</m> have both gaps larger than average,
+select all zeros of the derivative in the target disc of radius <m>2.5/N</m> centered at <m>(1-3/N) z_2</m>.
+(That is, select the <m>z'</m> in the small circles, as in <xref ref="specialcircles"/>.)
+Append those zeros to <c>specialzeros20</c>.
+</p>
+</statement>
+</problem>
+
+<p>
+In <xref ref="exp_special20"/>, the condition on consecutive zeros occurred
+around <m>332,000</m> times, which is consistent with the expected
+frequency of consecutive gaps which are larger than average.
+In those cases, in the target disc, <m>99.43</m>% of the time there was exactly one zero.
+Of the remaining <m>0.57</m>%, <m>92.7</m>% of the time there were two zeros,
+and in the remaining <m>0.04</m>%, no zeros.
+</p>
+
+<p>
+<xref ref="pointsinspecialcircles"/> shows all the zeros from <xref ref="exp_special20"/>
+in the target discs, as individual points and as a density plot.
+That figure gives a clear picture that the configuration of
+consecutive larger-than-average gaps contributes
+significantly to the second maximum.
+</p>
+    <figure xml:id="pointsinspecialcircles">
+      <caption>The points from <c>specialzeros20</c> in <xref ref="exp_special20"/>, with the
+  target disc rotated so that the corresponding zero <m>z_2</m> lies at the black dot.
+Point cloud on the left and histogram on the right.
+            </caption>
+<sidebyside widths="44% 47%" margins="0% 0%">
+      <image source="scatterspecialcircle.png">
+<description>A disc with a large number of tiny blue dots,
+most dense in the right half but missing a semicircular region in the
+rightmost third of the disc.</description>
+</image>
+      <image source="densityspecialcircle.png">
+<description>
+Similar except that the
+region is mostly blue except for a crescent shaped region within the blue, yellow in the
+middle and orange around the edges, from the first quadrant, coming close to the
+origin but staying to the right of it, and moving into the fourth quadrant.
+           </description>
+</image>
+</sidebyside>
+    </figure>
+
+<p>
+<xref ref="specialhistogram"/> shows the histogram, normalized to
+have area<nbsp/><m>1</m>, of <m>20(1-\abs{z'})</m> for the points <m>z'</m> in <xref ref="pointsinspecialcircles"/>.
+Considering the arrangement of the points in <xref ref="pointsinspecialcircles"/>,
+one should not expect that density function to have a simple form.
+Note that the heavier tail to the right in the histogram corresponds to the
+left portion of the cloud of dots.
+</p>
+
+    <figure xml:id="specialhistogram">
+      <caption>
+Histogram of <m>20(1-\abs{z'})</m> for the <m>z'</m> in <xref ref="pointsinspecialcircles"/>
+            </caption>
+      <image source="specialhistogram.png" width="50%">
+        <description>A histogram with a single peak near 2.7,
+mostly symmetric but skewed slightly to the right,
+extending from approximately 1.3 to approximately 4.6.
+           </description>
+      </image>
+    </figure>
+
+</section>

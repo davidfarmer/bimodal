@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xml:id="toymodel" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>A toy model</title>
+
+<introduction>
+<p>
+We have argued that the second bump arises when consecutive zero
+gaps are larger than average, with the details about the remaining
+zeros playing a lesser role.  We will explore this by analyzing a simple
+example.
+</p>
+</introduction>
+
+<subsection>
+<title>Excised roots of unity</title>
+
+<p>
+Consider <m>x^n-1</m> where two zeros have been deleted, creating
+consecutive zero gaps of twice the average.  That is, let
+<men>
+f_n(x) = \frac{x^n-1}{(1-e^{2\pi i/n}x)(1-e^{-2\pi i/n}x)}
+= \frac{x^n-1}{(1-2 \cos(2 \pi/n)x + x^2}
+</men>.
+<xref ref="model1fig"/> illustrates the cases <m>n=20</m> and <m>n=40</m>.
+</p>
+
+    <figure xml:id="model1fig">
+      <caption>The zeros, and the zeros of the derivative, of <m>f_{20}</m>
+on the left and <m>f_{40}</m> on the right.
+            </caption>
+<sidebyside widths="45% 45%">
+      <image source="excisedplot20.png" width="4o%">
+        <description>The unit circle with small orange squares at the 20th roots of unity,
+except for the two roots closest (but not equal) to 1, and with a small blue dot
+to the left of 1 slightly inside the dotted line of radius <m>1-2/N</m>, and other
+blue dots between the two dotted circles, slightly further around the circle
+than the other orange squares.
+           </description>
+      </image>
+
+      <image source="excisedplot40.png" width="40%">
+        <description>Similar to the previous figure, but with 40 orange squares and 39 blue dots.
+           </description>
+      </image>
+</sidebyside>
+    </figure>
+
+<proposition>
+<statement>
+<p>The derivative of <m>f_n</m> has a zero within <m>O(1/n^2)</m> of <m>1 - b_0/n</m>,
+where <m>b_0 = 2.3565\ldots</m> is the unique real root of
+<m>  4 \pi^2 +2 b + b^2 - 2 b e^b</m>. 
+</p>
+</statement>
+
+<proof>
+<p>
+By the quotient rule, the zeros of <m>f'_n</m> are the same as the
+zeros of
+<men>
+<!--
+f_n(x) = -2 \cos(2 \pi/n)  + 2 x + n x^{-1 + n} + 2 \cos(2 \pi/n)  x^n - 2 \cos(2 \pi/n)  n x^n - 2 x^{1 + n} + 
+ n x^{1 + n}.
+-->
+f_n(x) = -2 \cos(2 \pi/n)  + 2 x + n x^{-1 + n} + 2 \cos(2 \pi/n)(1-n)  x^n - (2-n) x^{1 + n}
+</men>
+Since <m>f_n(0) \approx -2</m> and <m>f_n(1) \approx 4\pi^2/n</m>, we see that
+<m>f_n</m> has a real zero in the interval <m>(0, 1)</m>, and that zero should be
+close to <m>1</m>.
+</p>
+
+<p>
+Setting <m>x = 1-b/n</m> and expanding to order <m>1/n^2</m> we find
+<men>
+f_n(1 - b/n) =
+e^{-b}\, \frac{2 b + b^2 - 2 b e^b + 4 \pi^2}n + 
+ e^{-b} \, \frac{-b^4 - 8 \pi^2 - 4 b^2 \pi^2 + 8 e^b \pi^2}{2 n^2}
++O\left(\frac{1}{n^3}\right) 
+</men>.
+Thus, <m>f_n(1 - b_0/n) = O(1/n^2)</m>. The argument is completed
+by Rouché's theorem.
+</p>
+
+
+</proof>
+
+</proposition>
+<p>
+Suppose the polynomial <m>f_n</m> was modified so that the roots at
+<m>E^{\pm 2\pi i \cdot 2/n}</m> instead were at <m>E^{2\pi i \cdot c_\pm /n}</m>,
+where <m>1\lt c_+ \lt 3</m> and <m>-3\lt c_- \lt -1</m>.
+Using the above method, one can check throught those ranges the derivative of the 
+modified polynomial  has a root within <m>0.8/n</m> of <m>1-2.6/n</m>.
+This is a much narrower range than asserted in <xref ref="sourceofhump2"/>.
+</p>
+
+</subsection>
+
+<subsection>
+<title>A final remark</title>
+
+<p>
+We have seen that, from the perspective of the geometry of zeros
+of polynomials, the behavior of the zeros of the derivative
+of a unitary polynomial <m>p</m> is quite complicated.  There are at least
+three (partially overlapping)
+ regimes for the zeros of<nbsp/><m>p'</m>, and in each regime the nature
+of the dominant influence is different.
+</p>
+
+<p>
+This suggests that making progress on understanding the distribution of
+zeros of<nbsp/><m>p'</m>, proving that the distribution is bimodal for example,
+may need to come from another approach.  The expected value of moments of <m>\abs{p_u'(1-r/N)}</m>
+for <m>u\in U(N)</m>
+seems a more likely avenue for progress. 
+However, it could still be interesting to quantify the way in which
+appropriately spaced triples of zeros contribute to the 2nd mode.
+
+</p>
+
+</subsection>
+
+</section>
