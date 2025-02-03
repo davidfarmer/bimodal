@@ -248,9 +248,11 @@ converges at that rate.</p>
 
 <p>
 Thus, if a property of a unitary polynomial depends only on the local
-configuration of zeros, then that property can be reliably studied by
+configuration of zeros, then the limiting behavior of that property can be reliably studied by
 performing numerical experiments on random matrices from <m>U(N)</m>
 for moderately sized<nbsp/><m>N</m>.
+Properties which rely on large numbers of zeros, such as moments or value distribution,
+can show significant departures from the limiting behavior.
 </p>
 
 </subsection>
