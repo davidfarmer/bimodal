@@ -19,7 +19,7 @@ Consider <m>x^n-1</m> where two zeros have been deleted, creating
 consecutive zero gaps of twice the average.  That is, let
 <men>
 f_n(x) = \frac{x^n-1}{(1-e^{2\pi i/n}x)(1-e^{-2\pi i/n}x)}
-= \frac{x^n-1}{(1-2 \cos(2 \pi/n)x + x^2}
+= \frac{x^n-1}{1-2 \cos(2 \pi/n)x + x^2}
 </men>.
 <xref ref="model1fig"/> illustrates the cases <m>n=20</m> and <m>n=40</m>.
 </p>
