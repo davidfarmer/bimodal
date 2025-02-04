@@ -24,6 +24,11 @@ of<nbsp/><m>(1-3/N) z_2</m>.
 </claim>
 
 <p>
+<xref ref="specialcircles"/> illustrates <xref ref="sourceofhump2"/>
+using an example with <m>N=30</m>.
+</p>
+
+<p>
 That claim reinforces the idea that the distribution of
 zeros of <m>p'</m> is difficult to analyze.  Given three
 zeros of <m>p</m>, we have located one zero of <m>p'</m>.
@@ -32,11 +37,6 @@ That leaves at least one, and typically two, zeros unaccounted for.
 likely that the gaps on either side are smaller than average,
 so that says something about the location of the <q>missing</q>
 zeros.  <xref ref="specialcircles"/> contains some examples.)
-</p>
-
-<p>
-<xref ref="specialcircles"/> illustrates <xref ref="sourceofhump2"/>
-using an example with <m>N=30</m>.
 </p>
 
     <figure xml:id="specialcircles">
