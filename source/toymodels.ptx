@@ -87,7 +87,7 @@ by Rouché's theorem.
 </proposition>
 <p>
 Suppose the polynomial <m>f_n</m> was modified so that the roots at
-<m>E^{\pm 2\pi i \cdot 2/n}</m> instead were at <m>E^{2\pi i \cdot c_\pm /n}</m>,
+<m>e^{\pm 2\pi i \cdot 2/n}</m> instead were at <m>e^{2\pi i \cdot c_\pm /n}</m>,
 where <m>1\lt c_+ \lt 3</m> and <m>-3\lt c_- \lt -1</m>.
 Using the above method, one can check throught those ranges the derivative of the 
 modified polynomial  has a root within <m>0.8/n</m> of <m>1-2.6/n</m>.
