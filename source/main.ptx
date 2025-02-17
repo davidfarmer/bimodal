@@ -15,7 +15,7 @@
 
         <knowl problem="no" remark="no" proof="no" problem-solution="no"/>
 
-<rename element="problem">Experiment</rename>
+<rename element="example">Experiment</rename>
 <rename element="solution">Outcome</rename>
 
   </docinfo>

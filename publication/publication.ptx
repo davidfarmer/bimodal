@@ -5,8 +5,10 @@
         <directories external="../assets" generated="../generated-assets"/>
     </source>
 
-    <web>
-        <knowl problem="no" remark="no" proof="no" problem-solution="no"/>
-    </web>
+    <html>
+        <knowl example="no" remark="no" proof="no" example-solution="no"/>
+    </html>
+
+    <latex latex-style="amsart"/>
 
 </publication>

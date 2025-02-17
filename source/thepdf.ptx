@@ -52,7 +52,8 @@ Our first experiment is to compile data on the radial distribution of zeros
 of derivatives.
 </p>
 
-<problem>
+<example>
+<title>Producing a large data set</title>
 <statement>
 <p>
 Start with an empty list named <c>zp20</c>.
@@ -84,7 +85,7 @@ of hitting either extreme is<nbsp/><m>0</m>.
 of <m>20 (1 - r_j)</m>.
 </p>
 </solution>
-</problem>
+</example>
 
     <figure xml:id="zp20pdf1">
       <caption>Empirical distribution of <m>20(1 - \abs{z'})</m> for <m>z'</m> a zero of the
@@ -157,7 +158,8 @@ zeros also decreases as <m>1/N^2</m>.  See <xref ref="sec_curve"/>.
 <p>
 <xref ref="jiggled"/> shows the results of the following:
 </p>
-<problem xml:id="p40perturbed">
+<example xml:id="p40perturbed">
+<title>The sensitivity to distant zeros</title>
 <statement>
 <p>
 Start with an empty list named <c>zp40perturbed</c>.
@@ -207,7 +209,7 @@ and a thinner scattering further from the circle.</description>
     </figure>
 
 </solution>
-</problem>
+</example>
 
 
 <p>
@@ -221,7 +223,7 @@ main features of the zeros of the derivative in that region.
 </subsection>
 
 <subsection xml:id="sec_stable">
-<title>Relative frequency spacings</title>
+<title>Relative frequency of neighbor spacings</title>
 <p>
 The second ingredient is a property of Haar measure on <m>U(N)</m>. 
 Suppose <m>\delta_1 \lt \cdots \lt \delta_k</m>.  We interpret those numbers as

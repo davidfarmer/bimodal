@@ -28,8 +28,8 @@ f_n(x) = \frac{x^n-1}{(1-e^{2\pi i/n}x)(1-e^{-2\pi i/n}x)}
       <caption>The zeros, and the zeros of the derivative, of <m>f_{20}</m>
 on the left and <m>f_{40}</m> on the right.
             </caption>
-<sidebyside widths="45% 45%">
-      <image source="excisedplot20.png" width="4o%">
+<sidebyside widths="45% 45%" margins="0% 0%">
+      <image source="excisedplot20.png" width="40%">
         <description>The unit circle with small orange squares at the 20th roots of unity,
 except for the two roots closest (but not equal) to 1, and with a small blue dot
 to the left of 1 slightly inside the dotted line of radius <m>1-2/N</m>, and other
@@ -62,22 +62,22 @@ zeros of
 f_n(x) = -2 \cos(2 \pi/n)  + 2 x + n x^{-1 + n} + 2 \cos(2 \pi/n)  x^n - 2 \cos(2 \pi/n)  n x^n - 2 x^{1 + n} + 
  n x^{1 + n}.
 -->
-f_n(x) = -2 \cos(2 \pi/n)  + 2 x + n x^{-1 + n} + 2 \cos(2 \pi/n)(1-n)  x^n - (2-n) x^{1 + n}
+F_n(x) = -2 \cos(2 \pi/n)  + 2 x + n x^{-1 + n} + 2 \cos(2 \pi/n)(1-n)  x^n - (2-n) x^{1 + n}
 </men>
-Since <m>f_n(0) \approx -2</m> and <m>f_n(1) \approx 4\pi^2/n</m>, we see that
-<m>f_n</m> has a real zero in the interval <m>(0, 1)</m>, and that zero should be
+Since <m>F_n(0) \approx -2</m> and <m>F_n(1) \approx 4\pi^2/n</m>, we see that
+<m>F_n</m> has a real zero in the interval <m>(0, 1)</m>, and that zero should be
 close to <m>1</m>.
 </p>
 
 <p>
 Setting <m>x = 1-b/n</m> and expanding to order <m>1/n^2</m> we find
 <men>
-f_n(1 - b/n) =
+F_n(1 - b/n) =
 e^{-b}\, \frac{2 b + b^2 - 2 b e^b + 4 \pi^2}n + 
  e^{-b} \, \frac{-b^4 - 8 \pi^2 - 4 b^2 \pi^2 + 8 e^b \pi^2}{2 n^2}
 +O\left(\frac{1}{n^3}\right) 
 </men>.
-Thus, <m>f_n(1 - b_0/n) = O(1/n^2)</m>. The argument is completed
+Thus, <m>F_n(1 - b_0/n) = O(1/n^2)</m>. The argument is completed
 by Rouché's theorem.
 </p>
 
@@ -89,9 +89,9 @@ by Rouché's theorem.
 Suppose the polynomial <m>f_n</m> was modified so that the roots at
 <m>e^{\pm 2\pi i \cdot 2/n}</m> instead were at <m>e^{2\pi i \cdot c_\pm /n}</m>,
 where <m>1\lt c_+ \lt 3</m> and <m>-3\lt c_- \lt -1</m>.
-Using the above method, one can check throught those ranges the derivative of the 
+Using the above method, one can check throughout those ranges the derivative of the 
 modified polynomial  has a root within <m>0.8/n</m> of <m>1-2.6/n</m>.
-This is a much narrower range than asserted in <xref ref="sourceofhump2"/>.
+This is a small subset of the region asserted in <xref ref="sourceofhump2"/>.
 </p>
 
 </subsection>
@@ -110,7 +110,7 @@ of the dominant influence is different.
 
 <p>
 This suggests that making progress on understanding the distribution of
-zeros of<nbsp/><m>p'</m>, proving that the distribution is bimodal for example,
+zeros of<nbsp/><m>p'</m>, such as proving that the distribution is bimodal,
 may need to come from another approach.  The expected value of moments of <m>\abs{p_u'(1-r/N)}</m>
 for <m>u\in U(N)</m>
 seems a more likely avenue for progress. 

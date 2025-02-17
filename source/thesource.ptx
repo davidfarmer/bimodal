@@ -55,7 +55,8 @@ zeros.  <xref ref="specialcircles"/> contains some examples.)
 <p>
 We reinforce <xref ref="sourceofhump2"/> with the following:
 </p>
-<problem xml:id="exp_special20">
+<example xml:id="exp_special20">
+<title>Focusing on the special zeros</title>
 <statement>
 <p>
 Start with an empty list <c>specialzeros20</c>.
@@ -67,7 +68,7 @@ select all zeros of the derivative in the target disc of radius <m>2.5/N</m> cen
 Append those zeros to <c>specialzeros20</c>.
 </p>
 </statement>
-</problem>
+</example>
 
 <p>
 In <xref ref="exp_special20"/>, the condition on consecutive zeros occurred
@@ -90,7 +91,7 @@ significantly to the second maximum.
   target disc rotated so that the corresponding zero <m>z_2</m> lies at the black dot.
 Point cloud on the left and histogram on the right.
             </caption>
-<sidebyside widths="44% 47%" margins="0% 0%">
+<sidebyside widths="47% 47%" margins="0% 0%">
       <image source="scatterspecialcircle.png">
 <description>A disc with a large number of tiny blue dots,
 most dense in the right half but missing a semicircular region in the
