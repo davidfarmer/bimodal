@@ -199,7 +199,7 @@ larger red squares.
     <figure xml:id="jiggled">
       <caption>The outcome of one run of <xref ref="p40perturbed"/>.
             </caption>
-      <image source="jiggledzeros2.png" width="75%">
+      <image source="jiggledzeros2.png" width="70%">
         <description>The unit circle with 40 small randomly placed red squares.
            Inside the circle are thousands of small blue dots.  In the first
 quadrant close to the circle the dots generally are in small isolated clusters.

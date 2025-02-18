@@ -43,7 +43,7 @@ zeros.  <xref ref="specialcircles"/> contains some examples.)
       <caption>The zeros of a degree <m>N=30</m> unitary polynomial with 
      circles of radius <m>2.5/N</m> containing some of the zeros of the derivative.
             </caption>
-      <image source="zerosinspecialcircles.png" width="70%">
+      <image source="zerosinspecialcircles.png" width="65%">
         <description><m>30</m> blue dots on the unit circle and <m>29</m> orange
     discs inside the unit circle.  Five of those orange discs have a small dotted
    circle surrounding them.  Those orange discs are located approximately
