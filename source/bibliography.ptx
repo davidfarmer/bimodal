@@ -46,6 +46,11 @@
 <pages start="592" end="604"/>
 </biblio>
 
+<biblio type="bibtex" xml:id="PTX">
+<author>The PreTeXt project</author>
+<title>The PreTeXt document authoring system</title>
+<journal>https://pretextbook.org</journal>
+</biblio>
 
 </references>
 
