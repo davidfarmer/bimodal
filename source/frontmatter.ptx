@@ -3,6 +3,8 @@
 <bibinfo>
 <author>
 <personname>David W. Farmer</personname>
+<institution>American Institute of Mathematics</institution>
+<email>farmer@aimath.org</email>
 </author>
 
 <keywords>
@@ -27,7 +29,7 @@ This work was partially supported by the National Science Foundation.
 The derivative of a polynomial with all zeros on the unit circle
 has the zeros of its derivative on or inside the unit circle.  It has
 been observed that in many cases the zeros of the derivative have a
-bimodal distribution: there are two smaller circles near which is it
+bimodal distribution: there are two smaller circles near which it is
 more likely to find those zeros.  We identify the likely source of
 the second mode.  This idea is supported with numerical examples involving
 the characteristic polynomials of random unitary matrices.
